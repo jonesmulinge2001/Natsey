@@ -14,12 +14,11 @@ export class FooterComponent {
   
   // Company information
   companyInfo = {
-    name: 'Your Company',
+    name: 'InLight',
     description: 'Making the world a better place through innovative solutions.',
-    address: '123 Business Street, Suite 100',
-    city: 'San Francisco, CA 94107',
-    email: 'info@yourcompany.com',
-    phone: '+1 (555) 123-4567'
+    city: 'Nairobi, Kenya',
+    email: 'nextlevelj101022@gmail.com',
+    phone: '+254 (790) 5077-03'
   };
 
   // Quick links

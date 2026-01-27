@@ -133,7 +133,7 @@ export class NavbarComponent {
     { name: 'Skills', path: 'skills', icon: '⚡' },
     { name: 'Services', path: 'services', icon: '🛠️' },
     { name: 'Projects', path: 'projects', icon: '💼' },
-    { name: 'Experience', path: 'experience', icon: '📈' },
+    // { name: 'Experience', path: 'experience', icon: '📈' },
     { name: 'Contact', path: 'contact', icon: '📧' }
   ];
 

@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
             <div>
               <div class="relative">
                 <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-2xl overflow-hidden shadow-2xl">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                  <img src="jonathan.jpeg" 
                        alt="Profile" 
                        class="w-full h-full object-cover">
                 </div>
@@ -85,7 +85,7 @@ import { CommonModule } from '@angular/common';
                   </div>
                   <div>
                     <div class="font-semibold">Location</div>
-                    <div class="text-gray-600">San Francisco, CA</div>
+                    <div class="text-gray-600">Nairobi, Kenya</div>
                   </div>
                 </div>
                 
@@ -95,7 +95,7 @@ import { CommonModule } from '@angular/common';
                   </div>
                   <div>
                     <div class="font-semibold">Email</div>
-                    <div class="text-gray-600">hello&#64;nextlevel.dev</div>
+                    <div class="text-gray-600">jonathanmulingemwandi&#64;gmail.com</div>
                   </div>
                 </div>
               </div>

@@ -52,7 +52,11 @@ interface Project {
             <!-- Project Image -->
             <div class="h-48 bg-gradient-to-r from-blue-100 to-purple-100 relative overflow-hidden">
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-6xl">{{project.image}}</div>
+              <img
+              src="{{project.image}}"
+              class="w-full h-48 object-cover rounded-xl"
+            />
+
               </div>
               <!-- Category Badge -->
               <div class="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full">
@@ -115,19 +119,9 @@ export class ProjectsComponent {
       description: 'Collaborative platform for academic researchers to connect and share knowledge.',
       category: 'Full-Stack',
       technologies: ['Angular', 'Nestjs', 'Postgres', 'Socket.io'],
-      image: '🎓',
-      liveUrl: 'https://academeet.demo',
-      githubUrl: 'https://github.com/nextlevel/academeet',
-      featured: true
-    },
-    {
-      title: 'UniTok',
-      description: 'University task management system with real-time collaboration features.',
-      category: 'Web Apps',
-      technologies: ['React', 'Express', 'PostgreSQL', 'Redis'],
-      image: '✅',
-      liveUrl: 'https://unitok.demo',
-      githubUrl: 'https://github.com/nextlevel/unitok',
+      image: 'academeet.jpeg',
+      liveUrl: 'https://acm-ldq1.vercel.app/',
+      githubUrl: 'https://github.com/jonesmulinge2001/ACM',
       featured: true
     },
     {
@@ -135,41 +129,31 @@ export class ProjectsComponent {
       description: 'Interactive Bible study platform with personalized learning paths.',
       category: 'Web Apps',
       technologies: ['Angular', 'NestJS', 'MySQL', 'Firebase'],
-      image: '📖',
+      image: 'faith.jpeg',
       liveUrl: 'https://faith-learn.vercel.app/',
-      githubUrl: 'https://github.com/nextlevel/scripture-path',
+      githubUrl: 'https://github.com/jonesmulinge2001/FaithLearn',
       featured: true
     },
     {
-      title: 'Health Tracker Mobile',
-      description: 'Mobile-first health monitoring app with AI-powered insights.',
+      title: 'Architecture and Construction',
+      description: 'Construction company specializing in desing and building of houses.',
       category: 'Mobile',
       technologies: ['React Native', 'Node.js', 'TensorFlow.js', 'MongoDB'],
-      image: '🏥',
-      liveUrl: 'https://healthtracker.demo',
-      githubUrl: 'https://github.com/nextlevel/health-tracker',
+      image: 'build.jpeg',
+      liveUrl: 'https://construction-ten-beta.vercel.app/',
+      githubUrl: 'https://github.com/jonesmulinge2001/Construction',
       featured: true
     },
     {
-      title: 'Code Collab',
-      description: 'Real-time collaborative code editor for remote pair programming.',
+      title: 'Leadership',
+      description: 'I invite you to join me on this journey—not as spectators, but as partners in building the Kenya we all deserve.',
       category: 'Open Source',
       technologies: ['Vue.js', 'Socket.io', 'Docker', 'AWS'],
-      image: '👨‍💻',
-      liveUrl: 'https://codecollab.demo',
+      image: 'jere.jpeg',
+      liveUrl: 'https://kilatya-for-kenya.lovable.app/',
       githubUrl: 'https://github.com/nextlevel/code-collab',
       featured: true
     },
-    {
-      title: 'E-Commerce Dashboard',
-      description: 'Analytics dashboard for e-commerce businesses with real-time data visualization.',
-      category: 'Full-Stack',
-      technologies: ['Angular', 'Python', 'Django', 'Chart.js'],
-      image: '📊',
-      liveUrl: 'https://ecommerce-dashboard.demo',
-      githubUrl: 'https://github.com/nextlevel/ecommerce-dashboard',
-      featured: true
-    }
   ];
 
   get filteredProjects() {
