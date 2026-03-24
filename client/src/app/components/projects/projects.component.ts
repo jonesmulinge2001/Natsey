@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Project {
@@ -16,101 +16,11 @@ interface Project {
   selector: 'app-projects',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <section id="projects" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              Featured Projects
-            </span>
-          </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Real-world applications solving complex problems with elegant solutions
-          </p>
-          
-          <!-- Category Filters -->
-          <div class="flex flex-wrap justify-center gap-3 mb-12">
-            <button *ngFor="let category of categories" 
-                    [class.active]="selectedCategory === category"
-                    (click)="filterProjects(category)"
-                    class="px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 font-medium hover:border-blue-500 hover:text-blue-600 transition-colors"
-                    [class.bg-gradient-to-r]="selectedCategory === category"
-                    [class.from-blue-600]="selectedCategory === category"
-                    [class.to-purple-600]="selectedCategory === category"
-                    [class.text-white]="selectedCategory === category"
-                    [class.border-transparent]="selectedCategory === category">
-              {{category}}
-            </button>
-          </div>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <div *ngFor="let project of filteredProjects" 
-               class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-            <!-- Project Image -->
-            <div class="h-48 bg-gradient-to-r from-blue-100 to-purple-100 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-              <img
-              src="{{project.image}}"
-              class="w-full h-48 object-cover rounded-xl"
-            />
-
-              </div>
-              <!-- Category Badge -->
-              <div class="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full">
-                {{project.category}}
-              </div>
-            </div>
-            
-            <!-- Project Content -->
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">{{project.title}}</h3>
-              <p class="text-gray-600 mb-4">{{project.description}}</p>
-              
-              <!-- Technologies -->
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span *ngFor="let tech of project.technologies" 
-                      class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
-                  {{tech}}
-                </span>
-              </div>
-              
-              <!-- Links -->
-              <div class="flex gap-3">
-                <a *ngIf="project.liveUrl" 
-                   [href]="project.liveUrl" 
-                   target="_blank"
-                   class="flex-1 text-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-colors">
-                  Live Demo
-                </a>
-                <a [href]="project.githubUrl" 
-                   target="_blank"
-                   class="flex-1 text-center px-4 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition-colors flex items-center justify-center gap-2">
-                  <span>🐙</span>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- View All Projects CTA -->
-        <div class="text-center">
-          <button class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-            View All Projects
-            <svg class="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-  `
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
-  selectedCategory = 'All';   
+export class ProjectsComponent implements OnInit {
+  selectedCategory = 'All';
   categories = ['All', 'Web Apps', 'Mobile', 'Full-Stack', 'Open Source', 'Design'];
 
   projects: Project[] = [
@@ -136,7 +46,7 @@ export class ProjectsComponent {
     },
     {
       title: 'Architecture and Construction',
-      description: 'Construction company specializing in desing and building of houses.',
+      description: 'Construction company specializing in design and building of houses.',
       category: 'Mobile',
       technologies: ['React Native', 'Node.js', 'TensorFlow.js', 'MongoDB'],
       image: 'build.jpeg',
@@ -153,7 +63,7 @@ export class ProjectsComponent {
       liveUrl: 'https://kilatya-for-kenya.lovable.app/',
       githubUrl: 'https://github.com/nextlevel/code-collab',
       featured: true
-    },
+    }
   ];
 
   get filteredProjects() {
@@ -165,5 +75,34 @@ export class ProjectsComponent {
 
   filterProjects(category: string) {
     this.selectedCategory = category;
+    this.animateCategoryChange();
+  }
+
+  ngOnInit() {
+    this.observeProjects();
+  }
+
+  private animateCategoryChange() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (projectsGrid) {
+      projectsGrid.classList.add('animate-fade-out');
+      setTimeout(() => {
+        projectsGrid.classList.remove('animate-fade-out');
+      }, 300);
+    }
+  }
+
+  private observeProjects() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      observer.observe(card);
+    });
   }
 }

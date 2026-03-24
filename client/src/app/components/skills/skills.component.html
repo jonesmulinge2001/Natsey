@@ -1,1 +1,136 @@
-<p>skills works!</p>
+<section id="skills" class="skills-section py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16 animate-on-scroll">
+        <div class="inline-block mb-4">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold">
+            <span class="material-icons text-sm mr-2">bolt</span>
+            Expertise & Mastery
+          </span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+          Technical Skills
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Mastering the tools and technologies that power modern web applications
+        </p>
+      </div>
+  
+      <!-- Skill Categories Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        
+        <!-- Frontend Skills Card -->
+        <div class="skill-card group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mr-4 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                <span class="material-icons text-white text-2xl">code</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                Frontend Development
+              </h3>
+            </div>
+            <div class="space-y-5 skill-section">
+              <div *ngFor="let skill of frontendSkills" class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <div class="flex items-center gap-2">
+                    <span class="material-icons text-blue-500 text-sm">{{skill.icon}}</span>
+                    <span class="font-medium text-gray-700">{{skill.name}}</span>
+                  </div>
+                  <span class="font-semibold text-blue-600">{{skill.level}}%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-1000 ease-out" 
+                       [style.width.%]="0"
+                       [attr.data-width]="skill.level + '%'"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Backend Skills Card -->
+        <div class="skill-card group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mr-4 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                <span class="material-icons text-white text-2xl">storage</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
+                Backend Development
+              </h3>
+            </div>
+            <div class="space-y-5 skill-section">
+              <div *ngFor="let skill of backendSkills" class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <div class="flex items-center gap-2">
+                    <span class="material-icons text-purple-500 text-sm">{{skill.icon}}</span>
+                    <span class="font-medium text-gray-700">{{skill.name}}</span>
+                  </div>
+                  <span class="font-semibold text-purple-600">{{skill.level}}%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <div class="skill-bar-fill bg-gradient-to-r from-purple-500 to-purple-600 h-3 rounded-full transition-all duration-1000 ease-out" 
+                       [style.width.%]="0"
+                       [attr.data-width]="skill.level + '%'"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Tools & Technologies Section -->
+      <div class="mb-16">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mb-4 shadow-lg">
+            <span class="material-icons text-white text-3xl">build_circle</span>
+          </div>
+          <h3 class="text-3xl font-bold text-gray-800 mb-2">Tools & Technologies</h3>
+          <p class="text-gray-600">Essential tools in my development workflow</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div *ngFor="let tech of technologies" 
+               class="tech-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 cursor-pointer group">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div class="relative w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="material-icons text-4xl text-blue-600 group-hover:text-purple-600 transition-colors duration-300">{{tech.icon}}</span>
+              </div>
+            </div>
+            <div class="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">{{tech.name}}</div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Soft Skills Section -->
+      <div>
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-teal-500 mb-4 shadow-lg">
+            <span class="material-icons text-white text-3xl">psychology</span>
+          </div>
+          <h3 class="text-3xl font-bold text-gray-800 mb-2">Soft Skills</h3>
+          <p class="text-gray-600">Personal attributes that enhance professional collaboration</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div *ngFor="let skill of softSkills" 
+               class="soft-skill-card bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 group cursor-pointer">
+            <div class="relative mb-4">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+              <div class="relative w-20 h-20 mx-auto rounded-full bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="material-icons text-3xl text-blue-600 group-hover:text-purple-600 transition-colors duration-300">{{skill.icon}}</span>
+              </div>
+            </div>
+            <h4 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">{{skill.name}}</h4>
+            <p class="text-gray-600 text-sm leading-relaxed">{{skill.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
